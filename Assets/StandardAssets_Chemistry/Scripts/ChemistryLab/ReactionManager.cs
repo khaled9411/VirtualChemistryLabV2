@@ -33,12 +33,18 @@ namespace VirtualChemLab
         }
 
         public void OnLiquidPoured(
-            LiquidContainer source,
-            LiquidContainer target,
-            float amount)
+                    LiquidContainer source,
+                    LiquidContainer target,
+                    float amount)
         {
             if (source == null || target == null) return;
             if (source.IsEmpty) return;
+
+            if (target.IsEmpty || target.ChemicalId == source.ChemicalId || string.IsNullOrEmpty(target.ChemicalId) || target.ChemicalId == "Empty")
+            {
+                target.FillWithoutReaction(source.ChemicalId, amount);
+                return;
+            }
 
             string progressKey = $"{source.GetInstanceID()}→{target.GetInstanceID()}";
 
@@ -47,12 +53,23 @@ namespace VirtualChemLab
 
             _pourProgress[progressKey] += amount;
 
-            if (_pourProgress[progressKey] < minimumPourToReact) return;
+            if (_pourProgress[progressKey] < minimumPourToReact)
+            {
+                target.FillWithoutReaction(target.ChemicalId, amount);
+                return;
+            }
 
+            float volumeToReact = _pourProgress[progressKey];
             _pourProgress[progressKey] = 0f;
 
-            TriggerReaction(source, target, _pourProgress.ContainsKey(progressKey)
-                ? _pourProgress[progressKey] : minimumPourToReact);
+            TriggerReaction(source, target, volumeToReact);
+        }
+
+        public void OnThermalReaction(ThermalReactionResult result, LiquidContainer container)
+        {
+            LogReaction(result);
+            onReactionTriggered?.Invoke(result.productName);
+            Debug.Log($"[ReactionManager] Thermal: {container.ChemicalId} → {result.productName}");
         }
 
         private void TriggerReaction(

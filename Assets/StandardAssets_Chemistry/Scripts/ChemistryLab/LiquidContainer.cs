@@ -12,6 +12,7 @@ namespace VirtualChemLab
 
         [Header("Fill")]
         [Range(0f, 1f)] public float fillLevel = 0.6f;
+        public bool isBeaker = false;
 
         [Header("Pour Settings")]
         public Transform pourPoint;
@@ -252,6 +253,21 @@ namespace VirtualChemLab
         {
             if (pourParticles == null) return;
             pourParticles.Stop();
+        }
+
+        public void FillWithoutReaction(string newChemicalId, float addedVolume)
+        {
+            if (IsEmpty || string.IsNullOrEmpty(chemicalId) || chemicalId == "Empty")
+            {
+                ApplyChemical(newChemicalId);
+            }
+
+            CurrentAmount = Mathf.Clamp01(CurrentAmount + addedVolume);
+
+            if (_lv != null)
+            {
+                _lv.level = CurrentAmount;
+            }
         }
     }
 }

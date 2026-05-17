@@ -33,6 +33,8 @@ namespace VirtualChemLab
         private LiquidContainer _targetContainer;
         private MaterialPropertyBlock _propBlock;
         private static readonly int EmissionColorID = Shader.PropertyToID("_EmissionColor");
+        private BunsenBurner _nearestBurner;
+
 
         void Awake()
         {
@@ -73,9 +75,11 @@ namespace VirtualChemLab
                 transform.position, targetPos, Time.deltaTime * dragFollowSpeed
             );
 
+            _nearestBurner = FindNearestBurner();
+
             LiquidContainer nearContainer = FindNearestContainer();
 
-            if (nearContainer != null && nearContainer != _container)
+            if (nearContainer != null && nearContainer != _container && TryGetComponent(out LiquidContainer container) && !container.isBeaker)
             {
                 if (_targetContainer != nearContainer)
                 {
@@ -103,13 +107,40 @@ namespace VirtualChemLab
         void OnMouseUp()
         {
             _isDragging = false;
-
             ClearHighlight(_targetContainer);
             _targetContainer = null;
 
+            if (_nearestBurner != null && _nearestBurner.TryDock(_container))
+            {
+                _nearestBurner = null;
+                _isPouring = false;
+                return;
+            }
+
+            _nearestBurner = null;
             StartCoroutine(ReturnToOrigin());
         }
 
+        private BunsenBurner FindNearestBurner()
+        {
+            BunsenBurner nearest = null;
+            float minDist = float.MaxValue;
+
+            foreach (var burner in FindObjectsByType<BunsenBurner>(FindObjectsSortMode.None))
+            {
+                Vector3 snapPos = burner.snapPoint != null
+                    ? burner.snapPoint.position
+                    : burner.transform.position;
+
+                float d = Vector3.Distance(transform.position, snapPos);
+                if (d < burner.snapRadius && d < minDist)
+                {
+                    minDist = d;
+                    nearest = burner;
+                }
+            }
+            return nearest;
+        }
         private IEnumerator AutoTiltAndPour()
         {
             _isPouring = true;
@@ -186,6 +217,9 @@ namespace VirtualChemLab
             foreach (var lc in FindObjectsByType<LiquidContainer>(FindObjectsSortMode.None))
             {
                 if (lc == _container) continue;
+
+                //if (!lc.isBeaker) continue;
+
                 float d = Vector3.Distance(transform.position, lc.transform.position);
                 if (d < minDist)
                 {

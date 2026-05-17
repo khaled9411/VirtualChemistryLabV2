@@ -45,7 +45,7 @@ public class MoleculeSpawner : MonoBehaviour
 
     public void DestroyUnusedElements()
     {
-        var elements = FindObjectsOfType<MouseTranslate>();
+        var elements = FindObjectsByType<MouseTranslate>(0);
         if (elements.Length != 0)
         {
             GoedleAnalytics.instance.track("clear.elements", GameManager.chosenMolecule.Name, elements.Length.ToString());
