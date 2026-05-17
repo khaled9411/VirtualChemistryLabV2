@@ -26,5 +26,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChemicalLab.unity
     guid: 3527b620cbd0ec64bb1a46e86215fe93
+  - enabled: 1
+    path: Assets/Scenes/FlameTest.unity
+    guid: c2a8aa4e9fb05e249bb6366eeb874297
+  - enabled: 1
+    path: Assets/Scenes/WeightOfEquations.unity
+    guid: cba7cdb17c32a364ca0c29c5400004f9
+  - enabled: 1
+    path: Assets/Scenes/Quiz.unity
+    guid: 7037b6775cba1b143aa30b0c5455fb63
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

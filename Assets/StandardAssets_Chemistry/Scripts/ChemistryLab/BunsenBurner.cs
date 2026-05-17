@@ -42,7 +42,7 @@ namespace VirtualChemLab
 
         public bool TryDock(LiquidContainer container)
         {
-            if (_dockedContainer != null) return false;
+            if (_dockedContainer != null || !container.isBeaker) return false;
 
             _dockedContainer = container;
             _dockedHeating = container.GetComponent<HeatingSystem>();

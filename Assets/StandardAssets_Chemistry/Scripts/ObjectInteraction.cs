@@ -29,7 +29,9 @@ public class ObjectInteraction : MonoBehaviour
         interactionCanvas.enabled = false;
         //apply the default material
         rend = GetComponent<Renderer>();
-        rend.material = defaultMat;
+
+        if (rend != null)
+            rend.material = defaultMat;
     }
 
     private void Update()
@@ -81,7 +83,9 @@ public class ObjectInteraction : MonoBehaviour
         {
             GoedleAnalytics.instance.track("play");
 
-            rend.material = outlinedMat;
+            if(rend != null)
+                rend.material = outlinedMat;
+
             interactionCanvas.enabled = true;
             inTrigger = true;
             crosshair.GetComponent<Crosshair>().DisableCrosshair();
@@ -91,7 +95,9 @@ public class ObjectInteraction : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        rend.material = defaultMat;
+        if (rend != null)
+            rend.material = defaultMat;
+
         interactionCanvas.enabled = false;
         inTrigger = false;
         crosshair.GetComponent<Crosshair>().EnableCrosshair();
