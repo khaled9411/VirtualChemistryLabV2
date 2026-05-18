@@ -159,7 +159,7 @@ namespace VirtualChemLab
 
             _loadedSalt = salt;
             CurrentPhase = FlameTestPhase.SaltLoaded;
-            Log($"[FlameTest]Wire loaded with {salt.formula}. Hold it in the flame.");
+            Log($"[FlameTest] Wire loaded with {salt.formula}. Hold it in the flame.");
         }
 
         private IEnumerator FlameTestRoutine()
@@ -216,7 +216,7 @@ namespace VirtualChemLab
 
             StartCoroutine(LerpTipColor(_loadedSalt.saltColor, _activeCation.flameColor, 0.3f));
 
-            Log($"[FlameTest] Flame colour: <color=#{ColorUtility.ToHtmlStringRGB(_activeCation.flameColor)}" +
+            Log($" Flame colour: <color=#{ColorUtility.ToHtmlStringRGB(_activeCation.flameColor)}" +
                 $"><b>{_activeCation.flameColorName}</b></color>  →  " +
                 $"Cation: {_activeCation.symbol} ({_activeCation.elementName})\n" +
                 _activeCation.logMessage);
