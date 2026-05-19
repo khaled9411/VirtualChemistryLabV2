@@ -854,33 +854,21 @@ MonoBehaviour:
   grades:
   - gradeName: 1ST
     levels:
-    - levelName: fuck1
-      sceneName: Lab
-    - levelName: fuck2
-      sceneName: Lab
-    - levelName: fuck3
+    - levelName: 'Level1: Acid-Base Reaction '
       sceneName: Lab
   - gradeName: 2ND
     levels:
-    - levelName: fuck1
+    - levelName: 'Level1: Combustion Reaction '
       sceneName: Lab
-    - levelName: fuck2
-      sceneName: Lab
-    - levelName: fuck3
-      sceneName: Lab
-    - levelName: fuck4
+    - levelName: 'Level2: Precipitation Reaction'
       sceneName: Lab
   - gradeName: 3RD
     levels:
-    - levelName: fuck1
+    - levelName: 'Level1: Oxidation Reaction '
       sceneName: Lab
-    - levelName: fuck2
+    - levelName: 'Level2: Neutralization Reaction '
       sceneName: Lab
-    - levelName: fuck3
-      sceneName: Lab
-    - levelName: fuck4
-      sceneName: Lab
-    - levelName: fuck5
+    - levelName: 'Level3: Decomposition Reaction'
       sceneName: Lab
   normalSprite: {fileID: 21300000, guid: 04a74c1b048c3e5478179843359cef6f, type: 3}
   selectedSprite: {fileID: 21300000, guid: 9c538d29b275502479d40ddecd738c24, type: 3}

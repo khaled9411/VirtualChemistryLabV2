@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c3ae566500ed846b4fd05aab2456af, type: 3}
   m_Name: Q2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionSO
-  questionText: do you love Khaled
+  questionText: Which gas is released when zinc reacts with hydrochloric acid?
   options:
-  - YES
-  - yes
-  - Halll Yahhhh
-  - Yes!
+  - Oxygen
+  - Nitrogen
+  - Hydrogen
+  - Carbon dioxide
   correctOptionIndex: 2

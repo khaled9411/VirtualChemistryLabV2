@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c3ae566500ed846b4fd05aab2456af, type: 3}
   m_Name: Q4
   m_EditorClassIdentifier: Assembly-CSharp::QuestionSO
-  questionText: Why do you want Fcuk Mohab?
+  questionText: Which element has the atomic number 8?
   options:
-  - FCUK Mohab
-  - It's horrible
-  - He deserves it
-  - Fcuk Mohab
+  - Oxygen
+  - Carbon
+  - Nitrogen
+  - Hydrogen
   correctOptionIndex: 0
