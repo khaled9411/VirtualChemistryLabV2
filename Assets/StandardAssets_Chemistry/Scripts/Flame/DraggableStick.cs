@@ -11,6 +11,7 @@ namespace VirtualChemLab
         {
             _mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
             _mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+            _mOffset.z = 0f; // Ensure the offset is only in the X and Y plane
         }
 
         void OnMouseDrag()

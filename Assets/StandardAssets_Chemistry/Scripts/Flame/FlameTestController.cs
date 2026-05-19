@@ -29,6 +29,9 @@ namespace VirtualChemLab
         [Header("Stick Renderer")]
         public Renderer wireTipRenderer;
         public string tipColorProperty = "_Color";
+        public Color cleanTipColor = Color.white;
+        public Color wetTipColor = new Color(0.85f, 0.95f, 1f);
+        public Color saltTipColor = new Color(0.9f, 0.9f, 0.5f);
 
         [Header("Audio")]
         public AudioClip acidDipSound;
@@ -117,7 +120,7 @@ namespace VirtualChemLab
             _activeCation = null;
             CurrentPhase = FlameTestPhase.Idle;
 
-            SetTipColor(Color.white);
+            SetTipColor(cleanTipColor);
             ApplyFlameColor(_defaultStartColor, _defaultEmission, _defaultLightIntensity);
 
             Log("");
@@ -133,9 +136,9 @@ namespace VirtualChemLab
                 ? wireTipRenderer.material.GetColor(tipColorProperty)
                 : Color.white;
 
-            yield return LerpTipColor(startTip, new Color(0.85f, 0.95f, 1f), 0.3f);
+            yield return LerpTipColor(startTip, cleanTipColor, 0.3f);
             yield return new WaitForSeconds(0.8f);
-            yield return LerpTipColor(new Color(0.85f, 0.95f, 1f), Color.white, 0.3f);
+            yield return LerpTipColor(cleanTipColor, wetTipColor, 0.3f);
 
             _loadedSalt = null;
             _activeCation = null;
@@ -149,7 +152,7 @@ namespace VirtualChemLab
             PlaySound(saltPickupSound);
             Log($"[FlameTest] Picking up {salt.displayName} ({salt.formula})…");
 
-            yield return LerpTipColor(Color.white, salt.saltColor, 0.4f);
+            yield return LerpTipColor(wetTipColor, salt.saltColor, 0.4f);
             yield return new WaitForSeconds(0.5f);
 
             _loadedSalt = salt;
@@ -228,7 +231,7 @@ namespace VirtualChemLab
             }
 
             ApplyFlameColor(_defaultStartColor, _defaultEmission, _defaultLightIntensity);
-            SetTipColor(Color.white);
+            SetTipColor(cleanTipColor);
             CurrentPhase = FlameTestPhase.AcidDipped;
         }
 

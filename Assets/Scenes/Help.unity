@@ -626,8 +626,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 599.4, y: 127.15}
-  m_SizeDelta: {x: 1091.5, y: 254.3}
+  m_AnchoredPosition: {x: 612.95, y: -36.66}
+  m_SizeDelta: {x: 1118.59, y: 581.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361962196
 MonoBehaviour:
@@ -662,17 +662,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Game Quiz 1 : Molecule Naming
-
-    Use the mouse to drag and drop the
-    availiable elements to the correct slots to create the molecule''s formula.
-
-
-    Game
-    Quzi 2 : Molecule Construction
-
-    Spawn elements and drag them in the correct
-    slots upon the molecule''s model, to create its structure.  '
+  m_Text: "Game Quiz 1 : Molecule Naming\nUse the mouse to drag and drop the availiable
+    elements to the correct slots to create the molecule's formula.\n\nGame Quzi
+    2 : Molecule Construction\nSpawn elements and drag them in the correct slots
+    upon the molecule's model, to create its structure.  \n\nGame Quiz 3 : Equation
+    Balancing\nAdjust the coefficients of the chemical equation using increase and
+    decrease controls until the equation becomes balanced correctly.\n\nGame Quiz
+    4 : Flame Test\nUse drag-and-drop interactions to perform the flame test procedure
+    by dipping the wire loop into hydrochloric acid, placing it into a salt sample,
+    and passing it through the flame to observe color changes and identify chemical
+    elements based on their characteristic flame emissions.\n\nGame Quiz 5 : Virtual
+    Chemistry Experiment\nInteract with laboratory tools and chemical materials using
+    drag-and-drop actions to perform experiments and observe simulated chemical reactions.\n\nGame
+    Quiz 6 : Multiple Choice Questions (MCQ)\nAnswer multiple-choice questions by
+    selecting the correct option from the available answers."
 --- !u!222 &1361962197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1041,7 +1044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 55.12, y: -46.77}
+  m_AnchoredPosition: {x: 55.119995, y: -46.76999}
   m_SizeDelta: {x: 54.4, y: 55.22}
   m_Pivot: {x: 0.5000006, y: 0.5}
 --- !u!114 &1975080049
