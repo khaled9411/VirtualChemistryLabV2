@@ -11,7 +11,8 @@ namespace VirtualChemLab
         GasProducing, // Produces gas/smoke
         Precipitation, // Precipitation TO Solid
         Exothermic, // Exothermic Reaction
-        Neutral // Simple Neutrality
+        Neutral, // Simple Neutrality
+        Substitution
     }
 
     [System.Serializable]
@@ -94,7 +95,7 @@ namespace VirtualChemLab
                 ["HCl"] = new Chemical
                 {
                     id = "HCl",
-                    displayName = "Hydrochloric acid",
+                    displayName = "HCl",
                     formula = "HCl",
                     liquidColor = new Color(0.85f, 0.95f, 1f, 0.85f),
                     liquidColor2 = new Color(0.7f, 0.9f, 1f, 0.85f),
@@ -133,7 +134,7 @@ namespace VirtualChemLab
                 ["NaOH"] = new Chemical
                 {
                     id = "NaOH",
-                    displayName = "Sodium hydroxide",
+                    displayName = "NaOH",
                     formula = "NaOH",
                     liquidColor = new Color(0.6f, 0.8f, 1f, 0.85f),
                     liquidColor2 = new Color(0.4f, 0.6f, 1f, 0.85f),
@@ -145,7 +146,7 @@ namespace VirtualChemLab
                 ["NH3"] = new Chemical
                 {
                     id = "NH3",
-                    displayName = "Ammonia",
+                    displayName = "NH3",
                     formula = "NH₃",
                     liquidColor = new Color(0.9f, 1f, 0.7f, 0.8f),
                     liquidColor2 = new Color(0.8f, 1f, 0.5f, 0.8f),
@@ -188,7 +189,7 @@ namespace VirtualChemLab
                 ["NaHCO3"] = new Chemical
                 {
                     id = "NaHCO3",
-                    displayName = "Sodium bicarbonate",
+                    displayName = "NaHCO3",
                     formula = "NaHCO₃",
                     liquidColor = new Color(0.7f, 0.85f, 1f, 0.8f),
                     liquidColor2 = new Color(0.6f, 0.75f, 1f, 0.8f),
@@ -200,12 +201,50 @@ namespace VirtualChemLab
                 ["CuSO4"] = new Chemical
                 {
                     id = "CuSO4",
-                    displayName = "Copper sulfate",
+                    displayName = "CuSO4",
                     formula = "CuSO₄",
                     liquidColor = new Color(0.1f, 0.4f, 0.9f, 0.95f),
                     liquidColor2 = new Color(0.0f, 0.3f, 0.8f, 0.95f),
                     murkiness = 0.45f,
                     ph = 4f,
+                    hasFoam = false,
+                    hasSmoke = false
+                },
+                ["Na2S2O3"] = new Chemical
+                {
+                    id = "Na2S2O3",
+                    displayName = "Na2S2O3",
+                    formula = "Na2S2O3",
+                    liquidColor = new Color(0.95f, 0.95f, 1f, 0.8f),
+                    liquidColor2 = new Color(0.85f, 0.9f, 1f, 0.8f),
+                    murkiness = 0.05f,
+                    ph = 8.5f,
+                    hasFoam = false,
+                    hasSmoke = false
+                },
+
+                ["FeCl3"] = new Chemical
+                {
+                    id = "FeCl3",
+                    displayName = "FeCl3",
+                    formula = "FeCl3",
+                    liquidColor = new Color(1f, 0.92f, 0.55f, 0.85f),
+                    liquidColor2 = new Color(0.95f, 0.85f, 0.45f, 0.85f),
+                    murkiness = 0.2f,
+                    ph = 2.5f,
+                    hasFoam = false,
+                    hasSmoke = false
+                },
+
+                ["NH4SCN"] = new Chemical
+                {
+                    id = "NH4SCN",
+                    displayName = "NH4SCN",
+                    formula = "NH4SCN",
+                    liquidColor = new Color(0.98f, 0.98f, 1f, 0.75f),
+                    liquidColor2 = new Color(0.9f, 0.95f, 1f, 0.75f),
+                    murkiness = 0.03f,
+                    ph = 6.5f,
                     hasFoam = false,
                     hasSmoke = false
                 },
@@ -261,7 +300,7 @@ namespace VirtualChemLab
 
             Add("HCl", "NaHCO3", new ReactionResult
             {
-                productName = "Sodium chloride + carbon dioxide + water",
+                productName = "NaCl + CO2 + H2O",
                 resultColor = new Color(0.85f, 0.95f, 1f, 0.7f),
                 resultColor2 = new Color(0.8f, 0.9f, 1f, 0.7f),
                 resultMurkiness = 0.05f,
@@ -276,7 +315,7 @@ namespace VirtualChemLab
                 produceBubbles = true,
                 bubbleIntensity = 2f,
                 reactionType = ReactionType.GasProducing,
-                logMessage = "HCl + NaHCO₃ → NaCl + CO₂↑ + H₂O  |  Intense effervescence of CO₂ gas"
+                logMessage = "HCl + NaHCO2 → NaCl + CO2↑ + H2O  |  Intense effervescence of CO2 gas"
             });
 
             Add("CH3COOH", "NaHCO3", new ReactionResult
@@ -320,7 +359,7 @@ namespace VirtualChemLab
 
             Add("HCl", "NH3", new ReactionResult
             {
-                productName = "Ammonium chloride (white smoke)",
+                productName = "NH4Cl",
                 resultColor = new Color(0.9f, 0.95f, 0.9f, 0.6f),
                 resultColor2 = new Color(0.85f, 0.9f, 0.85f, 0.6f),
                 resultMurkiness = 0.8f,
@@ -331,12 +370,12 @@ namespace VirtualChemLab
                 smokeDuration = 8f,
                 produceBubbles = false,
                 reactionType = ReactionType.GasProducing,
-                logMessage = "HCl(g) + NH₃(g) → NH₄Cl  |  Dense white smoke"
+                logMessage = "HCl(g) + NH3(g) → NH4Cl  |  Dense white smoke"
             });
 
             Add("CuSO4", "NaOH", new ReactionResult
             {
-                productName = "Copper hydroxide (blue precipitate) + Sodium sulfate",
+                productName = "Cu(OH)2↓ + Na2SO4",
                 resultColor = new Color(0.05f, 0.25f, 0.7f, 0.95f),
                 resultColor2 = new Color(0.0f, 0.15f, 0.5f, 0.95f),
                 resultMurkiness = 0.85f,
@@ -345,7 +384,7 @@ namespace VirtualChemLab
                 produceSmoke = false,
                 produceBubbles = false,
                 reactionType = ReactionType.Precipitation,
-                logMessage = "CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄  |  blue precipitation"
+                logMessage = "CuSO4 + 2NaOH → Cu(OH)2↓ + Na2SO4  |  blue precipitation"
             });
 
             Add("H2SO4", "NaHCO3", new ReactionResult
@@ -369,6 +408,44 @@ namespace VirtualChemLab
                 logMessage = "H₂SO₄ + 2NaHCO₃ → Na₂SO₄ + 2CO₂↑ + 2H₂O"
             });
 
+            Add("Na2S2O3", "HCl", new ReactionResult
+            {
+                productName = "2NaCl + H2O + SO2↑ + S↓",
+
+                resultColor = new Color(1f, 0.95f, 0.5f, 0.85f),
+                resultColor2 = new Color(0.9f, 0.85f, 0.3f, 0.85f),
+
+                resultMurkiness = 0.75f,
+                colorTransitionSpeed = 0.8f,
+
+                produceSmoke = true,
+                smokeColor = new Color(0.9f, 0.9f, 0.8f, 0.45f),
+                smokeDuration = 5f,
+
+                produceBubbles = true,
+                bubbleIntensity = 1.2f,
+
+                reactionType = ReactionType.GasProducing,
+
+                logMessage = "Na2S2O3 + 2HCl → 2NaCl + H2O + SO2↑ + S↓"
+            });
+
+            Add("FeCl3", "NH4SCN", new ReactionResult
+            {
+                productName = "Fe(SCN)₃ + 3NH₄Cl",
+
+                resultColor = new Color(0.65f, 0f, 0f, 0.95f),
+                resultColor2 = new Color(0.85f, 0.05f, 0.05f, 0.95f),
+
+                resultMurkiness = 0.15f,
+                colorTransitionSpeed = 1.2f,
+
+                reactionType = ReactionType.Substitution,
+
+                heatGlow = 0.1f,
+
+                logMessage = "FeCl3 + 3NH4SCN → Fe(SCN)3 + 3NH4Cl"
+            });
             return _reactions;
         }
 

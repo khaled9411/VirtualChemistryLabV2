@@ -140,7 +140,7 @@ namespace VirtualChemLab
             if (reactionLogText == null) return;
 
             string prefix = isSimpleMix ? "⚪" : GetReactionEmoji(result.reactionType);
-            string line = $"{prefix} {System.DateTime.Now:HH:mm:ss} — {result.logMessage}";
+            string line = $"{result.logMessage}";
 
             _logLines.Add(line);
             if (_logLines.Count > maxLogLines)

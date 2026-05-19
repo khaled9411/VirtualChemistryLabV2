@@ -25,6 +25,7 @@ namespace VirtualChemLab
 
         [Header("Flame Light")]
         public Light flameLight;
+        public Color endFlameColor;
 
         [Header("Stick Renderer")]
         public Renderer wireTipRenderer;
@@ -64,7 +65,7 @@ namespace VirtualChemLab
                 var col = flameParticles.colorOverLifetime;
                 _defaultStartColor = col.enabled
                     ? col.color.gradient.colorKeys[0].color
-                    : Color.white;
+                    : endFlameColor;
             }
 
             if (flameMaterial != null && flameMaterial.HasProperty(flameEmissionProperty))
@@ -211,7 +212,7 @@ namespace VirtualChemLab
 
             // ----- Cool down --------------------------------------------------
             CurrentPhase = FlameTestPhase.CoolingDown;
-            yield return CoolDownRoutine(peakParticleColor, peakEmission, peakLightI);
+            yield return CoolDownRoutine(peakParticleColor, endFlameColor, peakLightI);
         }
 
         private IEnumerator CoolDownRoutine(Color fromParticleColor, Color fromEmission, float fromLightI)

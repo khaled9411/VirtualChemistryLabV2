@@ -38,5 +38,101 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Select.unity
     guid: 7c82c4c1e9e395340bb8076bb69a25f0
+  - enabled: 1
+    path: Assets/Scenes/1ST Levels/Level 1/1ST Level 1 Quiz.unity
+    guid: 7610288c32571644787645422dce1890
+  - enabled: 1
+    path: Assets/Scenes/1ST Levels/Level 1/1ST Level 1 Lab.unity
+    guid: 5727bef9839c7924ebb17184221e06fa
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 1/2ST Level 1 FlameTest.unity
+    guid: 515462c8b33b9544ea2e2d22584fc4ce
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 1/2ST Level 1 Lab.unity
+    guid: 3beed7cdc74ccc4458a8b4d096e98bba
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 1/2ST Level 1 Quiz.unity
+    guid: 96ec95ae288d8fc4aa5a0fc48b3d48b7
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 2/2ST Level 2 FlameTest.unity
+    guid: c8f867493ff8fd641bf974142c7ae90d
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 2/2ST Level 2 Lab.unity
+    guid: b34c1de938e9fdd4f98f5fd77c9c3ccf
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 2/2ST Level 2 Quiz.unity
+    guid: f7959b460ab7efa439b6c9d743c17467
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 3/2ST Level 3 FlameTest.unity
+    guid: 5f7a15b83de3da94fac4085bc0fc328d
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 3/2ST Level 3 Lab.unity
+    guid: e621c3616fcba1f4388e331c4d1d3ced
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 3/2ST Level 3 Quiz.unity
+    guid: 5af266d419e289448a4df5c2317d5938
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 4/2ST Level 4 FlameTest.unity
+    guid: b3ebf030484dcd54ab7f984923e3d6d5
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 4/2ST Level 4 Lab.unity
+    guid: fc6d6b5d12911cb43b1a738e5bebb69e
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 4/2ST Level 4 Quiz.unity
+    guid: 9c2a3b751a545434991929230b42e1ef
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 5/2ST Level 5 FlameTest.unity
+    guid: 2740f6e62d2cb7e49867d7efbe96c281
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 5/2ST Level 5 Lab.unity
+    guid: bb0e9e00b047eff4793e22e4dde6b841
+  - enabled: 1
+    path: Assets/Scenes/2ST Levels/Level 5/2ST Level 5 Quiz.unity
+    guid: 32e7708f72495af4481e52e2d5b1fdfa
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 1/3ST Level 1 ChemicalLab.unity
+    guid: 5280990ae8e0e1e47af14822ddfec076
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 1/3ST Level 1 Lab.unity
+    guid: e80d3ef239ae1ab4ba48bcf2682c1b8d
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 1/3ST Level 1 Quiz.unity
+    guid: 72a6d48c05f8c0e4285deb305f629ab5
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 2/3ST Level 2 ChemicalLab.unity
+    guid: ca66f2695ce0b8942b7cb661d2967d0f
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 2/3ST Level 2 Lab.unity
+    guid: b7162f11832ecd645984cc82888616de
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 2/3ST Level 2 Quiz.unity
+    guid: b87bc33140c95164a8580ce5cc0b2232
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 3/3ST Level 3 ChemicalLab.unity
+    guid: e780ca53ec3676e4f92e426a4ba31748
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 3/3ST Level 3 Lab.unity
+    guid: 179b60b05ec174547a1172fc510c5dac
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 3/3ST Level 3 Quiz.unity
+    guid: 9b60f88ad7cc533439d651e0ec0e475f
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 4/3ST Level 4 ChemicalLab.unity
+    guid: 7b7d83fcd55a2ab47b33037614b89285
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 4/3ST Level 4 Lab.unity
+    guid: 979a6fd12d3824a4b851725d98563a88
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 4/3ST Level 4 Quiz.unity
+    guid: 89d54be9339e44844b5395d80219846f
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 5/3ST Level 5 ChemicalLab.unity
+    guid: 4f725a38d9b1c54429d960776007653b
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 5/3ST Level 5 Lab.unity
+    guid: db9587729d08d45408eebcf5686325de
+  - enabled: 1
+    path: Assets/Scenes/3ST Levels/Level 5/3ST Level 5 Quiz.unity
+    guid: 49089d6b8ff84974e85d56db2f5c67e9
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
