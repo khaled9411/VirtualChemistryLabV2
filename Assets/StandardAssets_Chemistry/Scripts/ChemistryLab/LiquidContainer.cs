@@ -52,6 +52,11 @@ namespace VirtualChemLab
                 return;
             }
 
+            var main = pourParticles.main;
+            main.startColor = new ParticleSystem.MinMaxGradient(
+            _chemical.liquidColor
+            );
+
             ApplyVisuals(_chemical);
             UpdateLabels();
         }
@@ -241,10 +246,10 @@ namespace VirtualChemLab
         {
             if (pourParticles == null) return;
 
-            var main = pourParticles.main;
-            main.startColor = new ParticleSystem.MinMaxGradient(
-                _chemical?.liquidColor ?? Color.blue
-            );
+            //var main = pourParticles.main;
+            //main.startColor = new ParticleSystem.MinMaxGradient(
+            //    _chemical.liquidColor
+            //);
 
             pourParticles.Play();
         }

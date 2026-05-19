@@ -30,10 +30,6 @@ namespace VirtualChemLab
         public Renderer wireTipRenderer;
         public string tipColorProperty = "_Color";
 
-        [Header("Particle Systems  (accents)")]
-        public ParticleSystem sparkParticles;
-        public ParticleSystem flameTipParticles;
-
         [Header("Audio")]
         public AudioClip acidDipSound;
         public AudioClip saltPickupSound;
@@ -124,7 +120,6 @@ namespace VirtualChemLab
             SetTipColor(Color.white);
             ApplyFlameColor(_defaultStartColor, _defaultEmission, _defaultLightIntensity);
 
-            StopAccentParticles();
             Log("");
         }
 
@@ -201,19 +196,6 @@ namespace VirtualChemLab
             }
             ApplyFlameColor(peakParticleColor, peakEmission, peakLightI);
 
-            if (_activeCation.produceSparks && sparkParticles != null)
-            {
-                var main = sparkParticles.main;
-                main.startColor = _activeCation.sparkColor;
-                sparkParticles.Play();
-            }
-            if (flameTipParticles != null)
-            {
-                var main2 = flameTipParticles.main;
-                main2.startColor = _activeCation.flameColor;
-                flameTipParticles.Play();
-            }
-
             StartCoroutine(LerpTipColor(_loadedSalt.saltColor, _activeCation.flameColor, 0.3f));
 
             Log($" Flame colour: <color=#{ColorUtility.ToHtmlStringRGB(_activeCation.flameColor)}" +
@@ -223,8 +205,6 @@ namespace VirtualChemLab
 
             // ----- Hold at peak -----------------------------------------------
             yield return new WaitForSeconds(_activeCation.sustainTime);
-
-            StopAccentParticles();
 
             // ----- Cool down --------------------------------------------------
             CurrentPhase = FlameTestPhase.CoolingDown;
@@ -307,12 +287,6 @@ namespace VirtualChemLab
                 yield return null;
             }
             SetTipColor(to);
-        }
-
-        private void StopAccentParticles()
-        {
-            if (sparkParticles != null && sparkParticles.isPlaying) sparkParticles.Stop();
-            if (flameTipParticles != null && flameTipParticles.isPlaying) flameTipParticles.Stop();
         }
 
         private void PlaySound(AudioClip clip)

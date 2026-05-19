@@ -19,9 +19,9 @@ public class QuizManager : MonoBehaviour
     public Text scoreTextUI;
 
     [Header("Feedback Colors")]
-    public Color normalColor = Color.white;
-    public Color correctColor = new Color(0.2f, 0.8f, 0.2f);
-    public Color wrongColor = new Color(0.9f, 0.2f, 0.2f);
+    public Sprite normalColor;
+    public Sprite correctColor;
+    public Sprite wrongColor;
 
     private bool isAnswering = false;
 
@@ -53,7 +53,7 @@ public class QuizManager : MonoBehaviour
         for (int i = 0; i < optionButtons.Length; i++)
         {
             optionTextsUI[i].text = currentQ.options[i];
-            optionButtons[i].GetComponent<Image>().color = normalColor;
+            optionButtons[i].GetComponent<Image>().sprite = normalColor;
 
             int index = i;
             optionButtons[i].onClick.RemoveAllListeners();
@@ -74,7 +74,7 @@ public class QuizManager : MonoBehaviour
             if (selectedIndex >= 0)
             {
                 Image btnImage = optionButtons[selectedIndex].GetComponent<Image>();
-                btnImage.DOColor(correctColor, 0.3f);
+                btnImage.sprite = correctColor;
             }
         }
         else
@@ -82,13 +82,13 @@ public class QuizManager : MonoBehaviour
             if (selectedIndex >= 0)
             {
                 Image wrongBtnImage = optionButtons[selectedIndex].GetComponent<Image>();
-                wrongBtnImage.DOColor(wrongColor, 0.3f);
+                wrongBtnImage.sprite = wrongColor;
 
                 wrongBtnImage.transform.DOShakePosition(0.4f, new Vector3(15, 0, 0), 10, 90, false, true);
             }
 
             Image correctBtnImage = optionButtons[currentQ.correctOptionIndex].GetComponent<Image>();
-            correctBtnImage.DOColor(correctColor, 0.3f);
+            correctBtnImage.sprite = correctColor;
         }
 
         StartCoroutine(NextQuestionRoutine());
