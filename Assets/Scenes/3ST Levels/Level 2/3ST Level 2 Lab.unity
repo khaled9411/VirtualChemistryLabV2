@@ -27159,7 +27159,7 @@ MonoBehaviour:
   sceneLoader: {fileID: 227587222}
   cursor: {fileID: 806409091}
   clip: {fileID: 8300000, guid: 28f48e6af139f4947b1e28ed02729467, type: 3}
-  sceneToLoad: 3ST Level 3 ChemicalLab
+  sceneToLoad: 3ST Level 2 ChemicalLab
   scoreManager: {fileID: 0}
 --- !u!1 &1097353234
 GameObject:
